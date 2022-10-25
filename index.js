@@ -14,6 +14,11 @@ app.get('/', (req,res) =>{
 app.get('/students', (req,res) =>{
     res.send(students);
 })
+app.get('/students/:id',(req,res) =>{
+  const id =  parseInt(req.params.id);
+  const student =students.find(st => st.id === id);
+  res.send(student);
+})
 app.listen(port, () =>{
     console.log(`assignment server on port, ${port}`)
 })
